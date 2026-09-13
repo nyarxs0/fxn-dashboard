@@ -1,0 +1,9 @@
+services:
+  fxn-dashboard:
+    build: .
+    container_name: fxn-dashboard
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - PORT=3000
