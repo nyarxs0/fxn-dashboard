@@ -1,12 +1,13 @@
 :root{--navy:#0e1c2f;--navy2:#152a45;--bg:#f0f2f5;--panel:#fff;--line:#d7dce2;--ink:#1c2733;--muted:#6b7684;--blue:#1a73e8;--red:#d93025;--orange:#f28c28;--yellow:#f2c94c;--green:#188038;--gold:#b8860b;}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);font-size:clamp(13px,1.4vw,14.5px);line-height:1.55;}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);font-size:clamp(13px,1.4vw,14.5px);line-height:1.55;transition:background .2s,color .2s;}
 .topbar{background:var(--navy);color:#fff;padding:9px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:50;border-bottom:3px solid var(--orange);}
 .topbar .brand{font-weight:800;font-size:1rem;flex:1;white-space:nowrap;}
 .topbar .brand .dot{color:var(--orange);}
 .topbar .madeon{font-size:.68rem;color:#9fb0c3;font-family:monospace;white-space:nowrap;}
-.hamburger{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;width:34px;height:34px;border-radius:4px;font-size:1.05rem;cursor:pointer;flex-shrink:0;}
+.hamburger,.themeToggle{background:none;border:1px solid rgba(255,255,255,.4);color:#fff;width:34px;height:34px;border-radius:4px;font-size:1.05rem;cursor:pointer;flex-shrink:0;}
+.hamburger{display:none;}
 .layout{display:flex;max-width:1400px;margin:0 auto;position:relative;}
 nav#navbar{width:210px;flex-shrink:0;background:var(--panel);border-right:1px solid var(--line);min-height:100vh;padding:8px 0;position:sticky;top:44px;align-self:flex-start;max-height:calc(100vh - 44px);overflow-y:auto;display:none;}
 nav .navgroup-label{padding:10px 14px 4px;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800;}
@@ -99,6 +100,26 @@ footer{text-align:center;padding:14px;color:var(--muted);font-size:.72rem;border
 .impbadge{display:inline-block;padding:2px 7px;border-radius:3px;font-size:.65rem;font-weight:800;color:#fff;white-space:nowrap;}
 .imp-h{background:var(--red);}
 .loading{color:var(--muted);font-size:.8rem;padding:10px;}
+
+[data-theme="dark"]{--bg:#0d1117;--panel:#161b22;--line:#30363d;--ink:#e6edf3;--muted:#8b949e;}
+[data-theme="dark"] table th{background:#1f2733;}
+[data-theme="dark"] tr:nth-child(even){background:#1c212b;}
+[data-theme="dark"] .tag{background:#1c212b;}
+[data-theme="dark"] .barrow .track{background:#252b36;}
+[data-theme="dark"] .callout{background:#2a2107;border-color:#4a3a10;}
+[data-theme="dark"] .callout.red{background:#2a1414;border-color:#4a2020;}
+[data-theme="dark"] .callout.blue{background:#0f1f33;border-color:#1f3a5c;}
+[data-theme="dark"] .callout.gold{background:#2a2410;border-color:#4a3f1a;}
+[data-theme="dark"] details.detail summary{background:#1c212b;color:var(--ink);}
+[data-theme="dark"] nav button.sidebtn.active{background:#22314a;color:#fff;}
+[data-theme="dark"] .calc{background:#1c212b;}
+[data-theme="dark"] .calc input,[data-theme="dark"] .calc select{background:#0d1117;color:var(--ink);border-color:var(--line);}
+[data-theme="dark"] #calcResult,[data-theme="dark"] #xauResult{background:#1c212b;}
+[data-theme="dark"] .gauge .inner{background:#161b22;}
+[data-theme="dark"] .scalebar .marker::after{background:#161b22;color:#e6edf3;}
+[data-theme="dark"] .feedcard{background:#161b22;}
+[data-theme="dark"] .barrow .lbl,[data-theme="dark"] .sparkbox .pricebig,[data-theme="dark"] .widget .wtitle .val{color:#e6edf3;}
+
 @media(max-width:860px){
 .hamburger{display:block;}
 .topbar{flex-wrap:nowrap;}
@@ -109,7 +130,7 @@ main{padding:10px;}
 table:not(.keep-table),table:not(.keep-table) thead,table:not(.keep-table) tbody,table:not(.keep-table) th,table:not(.keep-table) td,table:not(.keep-table) tr{display:block;width:100%;}
 table:not(.keep-table){border:none;}
 table:not(.keep-table) thead{display:none;}
-table:not(.keep-table) tr{margin-bottom:8px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff;}
+table:not(.keep-table) tr{margin-bottom:8px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel);}
 table:not(.keep-table) td{border:none;border-bottom:1px solid var(--line);padding:8px 9px 8px 42%;position:relative;min-height:34px;}
 table:not(.keep-table) td:last-child{border-bottom:none;}
 table:not(.keep-table) td::before{content:attr(data-label);position:absolute;left:9px;top:8px;width:38%;font-weight:700;color:var(--navy);font-size:.63rem;text-transform:uppercase;line-height:1.3;}
