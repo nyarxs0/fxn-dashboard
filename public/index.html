@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<title>FxN Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+<button class="hamburger" id="hamburgerBtn" aria-label="Buka menu">☰</button>
+<div class="brand">FxN <span class="dot">●</span> Dashboard</div>
+<div class="madeon" id="madeon">Fullstack — data live dari API</div>
+</div>
+<div class="tabsbar" id="tabsbar">
+<button class="navbtn active" data-target="dashboard">⚡ Dashboard</button>
+<button class="navbtn" data-target="kalenderdesember">📅 Kalender→Des</button>
+<button class="navbtn" data-target="xauusd">🥇 XAU/USD</button>
+<button class="navbtn" data-target="banksentral">🏦 Bank Sentral</button>
+<button class="navbtn" data-target="histori">📈 30 Hari</button>
+<button class="navbtn" data-target="kalkulator">🧮 Kalkulator</button>
+<button class="navbtn" data-target="tips">✅ Aturan</button>
+<button class="navbtn" data-target="studikasus">📰 Studi Kasus</button>
+<button class="navbtn" data-target="korelasi">🔗 Korelasi</button>
+<button class="navbtn" data-target="sesi">🕐 Sesi Pasar</button>
+<button class="navbtn" data-target="impact">🎯 Impact</button>
+<button class="navbtn" data-target="indikator">📊 Indikator</button>
+<button class="navbtn" data-target="anatomi">📖 Anatomi</button>
+</div>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+<nav id="navbar">
+<div class="navgroup-label">Paling Penting</div>
+<button class="sidebtn active" data-target="dashboard">⚡ Dashboard</button>
+<button class="sidebtn" data-target="kalenderdesember">📅 Kalender s.d Des 2026</button>
+<button class="sidebtn" data-target="xauusd">🥇 Dampak XAU/USD</button>
+<button class="sidebtn" data-target="banksentral">🏦 Bank Sentral</button>
+<button class="sidebtn" data-target="histori">📈 Data 30 Hari</button>
+<div class="navgroup-label">Alat & Penerapan</div>
+<button class="sidebtn" data-target="kalkulator">🧮 Kalkulator</button>
+<button class="sidebtn" data-target="tips">✅ Aturan Trading</button>
+<button class="sidebtn" data-target="studikasus">📰 Studi Kasus</button>
+<div class="navgroup-label">Pendukung</div>
+<button class="sidebtn" data-target="korelasi">🔗 Korelasi Pair</button>
+<button class="sidebtn" data-target="sesi">🕐 Sesi Pasar</button>
+<div class="navgroup-label">Dasar / Referensi</div>
+<button class="sidebtn" data-target="impact">🎯 Level Impact</button>
+<button class="sidebtn" data-target="indikator">📊 Indikator Kunci</button>
+<button class="sidebtn" data-target="anatomi">📖 Anatomi Calendar</button>
+</nav>
+<main>
+
+<section id="dashboard" class="page active">
+<div class="panel">
+<div class="panel-head"><span class="bar"></span><h1>Ringkasan Kilat — 10 Detik Baca</h1></div>
+<ul class="insightlist" id="insightlist"><li class="loading">Memuat data dari API...</li></ul>
+</div>
+<div class="dashgrid">
+<div class="widget">
+<div class="wtitle"><span>XAU/USD — 30 hari terakhir</span><span class="val" id="goldValTitle">—</span></div>
+<div class="sparkbox">
+<div><div class="pricebig" id="goldPriceBig">—</div><div class="delta up" id="goldDelta">—</div></div>
+<svg width="220" height="60" viewBox="0 0 220 60" style="flex:1;min-width:140px" id="sparkSvg"></svg>
+</div>
+<p style="margin-top:8px;font-size:.72rem;color:var(--muted)" id="sparkCaption">Memuat...</p>
+</div>
+<div class="widget">
+<div class="wtitle"><span>Fed Hike Odds</span><span class="val">FOMC 16 Sep</span></div>
+<div class="gaugebox">
+<div class="gauge" id="gaugeEl"><div class="inner"><b id="gaugeNum">—</b><span>hawkish</span></div></div>
+<p>Odds hike/hold ketat naik ke <b>85-91%</b> pasca data terbaru. Makin tinggi odds hawkish, makin besar tekanan ke gold & makin kuat USD jangka pendek.</p>
+</div>
+</div>
+<div class="widget">
+<div class="wtitle"><span>Rate Bank Sentral (%)</span></div>
+<div id="ratesBars"><div class="loading">Memuat...</div></div>
+</div>
+<div class="widget">
+<div class="wtitle"><span>Skala Impact News</span></div>
+<p style="font-size:.8rem;margin-bottom:0">Posisi tipikal event di skala Low → High:</p>
+<div class="scalebar">
+<div class="marker" data-label="PPI" style="left:8%"></div>
+<div class="marker" data-label="Retail/PMI" style="left:45%"></div>
+<div class="marker" data-label="NFP/CPI/FOMC" style="left:88%"></div>
+</div>
+<p style="font-size:.72rem;color:var(--muted);margin-top:14px">Semakin ke kanan (merah), semakin besar potensi pergerakan pip — bisa 50-150 pip untuk high-impact.</p>
+</div>
+</div>
+<div class="callout blue"><strong>Cara pakai dashboard ini:</strong> tab lain punya kotak <b>TL;DR</b> di paling atas — baca itu dulu. Butuh detail lengkap? Klik "▸ Baca detail lengkap" yang bisa di-expand.</div>
+</section>
+
+<section id="kalenderdesember" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Kalender High-Impact s.d Desember 2026</span></div>
+<ul><li>Data diambil <b>live dari endpoint /api/calendar</b> di backend.</li><li>3 FOMC lagi: <b>16 Sep, 28 Okt, 9 Des</b> — semua wajib dipantau ketat.</li><li>US NFP & CPI rilis rutin tiap bulan.</li></ul></div>
+<div class="panel">
+<div class="panel-head"><span class="bar"></span><h2>Kalender Event High-Impact — geser ke samping di HP</h2></div>
+<div class="tablescroll"><table class="keep-table" id="calendarTable"><thead><tr><th>Tanggal</th><th>Event</th><th>Negara</th><th>Impact</th></tr></thead><tbody><tr><td colspan="4" class="loading">Memuat data...</td></tr></tbody></table></div>
+<div class="callout blue"><strong>Sumber:</strong> Federal Reserve FOMC calendar, ECB Governing Council calendar, Bank of England MPC dates, Bank of Japan monetary policy schedule, BLS CPI release schedule.</div>
+</div>
+</section>
+
+<section id="xauusd" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Dampak ke XAU/USD</span></div>
+<ul><li>Data mekanisme diambil dari <b>/api/xauusd</b>.</li><li>CPI/NFP kuat → yield naik → gold turun. Risk-off → gold naik walau USD kuat.</li></ul></div>
+<div class="panel">
+<table id="xauTable"><thead><tr><th>News</th><th>Mekanisme</th><th>Arah Tipikal</th></tr></thead><tbody><tr><td colspan="3" class="loading">Memuat...</td></tr></tbody></table>
+<div class="callout gold"><strong>Update nyata (12 Sep):</strong> CPI Agustus in-line, gold sempat ke $4,317 lalu rebound tutup +0.75% ke $4,349 walau odds hike Fed naik ke 85-91%.</div>
+</div>
+<details class="detail"><summary>Baca detail — 4 aturan khusus trading gold</summary><div class="body"><ol class="steps"><li>Selalu cek jadwal FOMC/CPI/NFP dulu.</li><li>Pantau yield 10-Year Treasury bersamaan DXY.</li><li>Risk-off geopolitik bisa bikin gold naik walau USD menguat.</li><li>Spread gold pasca-news sering melebar lebih liar.</li></ol></div></details>
+</section>
+
+<section id="banksentral" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Bank Sentral</span></div>
+<ul><li>Data live dari <b>/api/rates</b>.</li><li>Spread Fed-ECB ~1.1-1.35% = driver utama tren EUR/USD.</li></ul></div>
+<div class="panel"><table id="ratesTable"><thead><tr><th>Bank Sentral</th><th>Rate</th><th>Next Meeting</th></tr></thead><tbody><tr><td colspan="3" class="loading">Memuat...</td></tr></tbody></table></div>
+</section>
+
+<section id="histori" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Data 30 Hari Terakhir</span></div>
+<ul><li>Data live dari <b>/api/history</b> (19 titik data harian).</li><li>Koreksi tajam 28 Agu - 1 Sep bertepatan repricing ekspektasi Fed.</li></ul></div>
+<div class="panel">
+<div class="panel-head"><span class="bar gold"></span><h2>Grafik Harga XAU/USD (20 Agustus – 12 September 2026)</h2></div>
+<svg width="100%" height="140" viewBox="0 0 640 120" preserveAspectRatio="none" id="historyChart"></svg>
+<p style="font-size:.7rem;color:var(--muted);text-align:center" id="historyCaption">Memuat...</p>
+<div class="tablescroll"><table class="keep-table" id="historyTable"><thead><tr><th>Tanggal</th><th>Harga (USD/oz)</th><th>Perubahan</th></tr></thead><tbody><tr><td colspan="3" class="loading">Memuat...</td></tr></tbody></table></div>
+</div>
+</section>
+
+<section id="kalkulator" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Kalkulator</span></div>
+<ul><li>Kalkulasi dikirim ke backend via <b>POST /api/surprise</b> dan <b>/api/xau-scenario</b>.</li></ul></div>
+<div class="panel">
+<div class="calc"><label>Forecast</label><input type="number" id="fc" placeholder="3.5" step="any"><label>Actual</label><input type="number" id="ac" placeholder="3.8" step="any"><button onclick="hitungSurprise()">Hitung Surprise%</button><div id="calcResult">Standby.</div></div>
+<div class="calc"><label>Skenario Gold</label><select id="xauEvent"><option value="cpi_high">CPI JAUH DI ATAS forecast (panas)</option><option value="cpi_low">CPI DI BAWAH forecast (dingin)</option><option value="nfp_high">NFP JAUH DI ATAS forecast (kuat)</option><option value="nfp_low">NFP DI BAWAH forecast (lemah)</option><option value="fomc_hawk">FOMC Hawkish</option><option value="fomc_dove">FOMC Dovish</option><option value="riskoff">Risk-off geopolitik</option></select><button onclick="estimasiXAU()">Estimasi Arah Gold</button><div id="xauResult">Standby.</div></div>
+</div>
+</section>
+
+<section id="tips" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Aturan Trading</span></div>
+<ul><li>Filter High impact dulu.</li><li>Jangan entry 1-2 menit pertama pasca rilis.</li><li>Untuk gold: pantau yield 10Y + DXY.</li></ul></div>
+<div class="panel"><ol class="steps"><li>Filter kalender khusus impact High dulu.</li><li>Cek forecast sebelum rilis, siapkan skenario dua arah.</li><li>Kecilkan lot/tutup posisi sebelum high-impact news.</li><li>Hindari entry 1-2 menit pertama pasca rilis.</li><li>Bandingkan reaksi harga dengan surprise%.</li><li>Catat nada statement bank sentral, bukan cuma angka rate.</li><li>Khusus gold: pantau yield 10Y Treasury bersamaan DXY.</li><li>Latihan di demo dulu sebelum uang riil.</li></ol></div>
+</section>
+
+<section id="studikasus" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Studi Kasus</span></div>
+<ul><li>Feed live dari <b>/api/feed</b>.</li><li>Reaksi awal news kadang berbalik arah dalam sesi yang sama.</li></ul></div>
+<div class="panel" id="feedContainer"><div class="loading">Memuat...</div></div>
+</section>
+
+<section id="korelasi" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Korelasi Pair</span></div>
+<ul><li>Satu news bisa gerakin banyak pair sekaligus.</li></ul></div>
+<div class="panel"><table><thead><tr><th>News</th><th>Langsung</th><th>Efek Tular</th></tr></thead><tbody>
+<tr><td data-label="News">US CPI/NFP</td><td data-label="Langsung">USD pairs</td><td data-label="Tular">Gold, indeks saham AS, minyak, yield</td></tr>
+<tr><td data-label="News">ECB Rate</td><td data-label="Langsung">EUR pairs</td><td data-label="Tular">DAX, EUR/GBP, EUR/JPY</td></tr>
+<tr><td data-label="News">BOJ Rate</td><td data-label="Langsung">JPY pairs</td><td data-label="Tular">Carry trade AUD/JPY, NZD/JPY</td></tr>
+<tr><td data-label="News">China PMI</td><td data-label="Langsung">AUD, NZD</td><td data-label="Tular">Copper, iron ore, gold</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="sesi" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Sesi Pasar</span></div>
+<ul><li>Data live dari <b>/api/sessions</b>.</li><li>Overlap London-NY = volume tertinggi.</li></ul></div>
+<div class="panel"><table id="sessionsTable"><thead><tr><th>Sesi</th><th>Jam (JST)</th><th>Karakter</th></tr></thead><tbody><tr><td colspan="3" class="loading">Memuat...</td></tr></tbody></table></div>
+</section>
+
+<section id="impact" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Level Impact</span></div>
+<ul><li><b>HIGH</b> = NFP/CPI/FOMC → 50-150 pip.</li><li><b>MEDIUM</b> = Retail Sales/PMI.</li><li><b>LOW</b> = speech rutin/PPI.</li></ul></div>
+<div class="panel"><table><thead><tr><th>Level</th><th>Contoh Event</th><th>Reaksi Pasar</th></tr></thead><tbody>
+<tr><td data-label="Level"><span class="tag"><span class="impdot d-high"></span>HIGH</span></td><td data-label="Event">NFP, CPI AS, FOMC, GDP, ECB/BOE decision</td><td data-label="Reaksi">50-150 pip, spread melebar drastis</td></tr>
+<tr><td data-label="Level"><span class="tag"><span class="impdot d-med"></span>MEDIUM</span></td><td data-label="Event">Retail Sales, PMI, employment report</td><td data-label="Reaksi">Signifikan tapi lebih terkontrol</td></tr>
+<tr><td data-label="Level"><span class="tag"><span class="impdot d-low"></span>LOW</span></td><td data-label="Event">Consumer Confidence, speech rutin</td><td data-label="Reaksi">Noise rendah</td></tr>
+</tbody></table><div class="callout red"><strong>Rule keras:</strong> jangan entry 2 menit pertama pasca high-impact news.</div></div>
+</section>
+
+<section id="indikator" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Indikator Kunci</span></div>
+<ul><li>Hafal: NFP, CPI, Rate Decision, GDP, Retail Sales, PMI.</li><li>Surprise% = (Actual−Forecast)/|Forecast|×100.</li></ul></div>
+<div class="panel"><table><thead><tr><th>Indikator</th><th>Pair Terdampak</th><th>Logika Arah</th></tr></thead><tbody>
+<tr><td data-label="Indikator">NFP</td><td data-label="Pair">USD, Gold, indeks saham</td><td data-label="Logika">Lebih kuat dari forecast → USD menguat</td></tr>
+<tr><td data-label="Indikator">CPI</td><td data-label="Pair">USD, Gold</td><td data-label="Logika">Panas → USD naik</td></tr>
+<tr><td data-label="Indikator">Rate Decision</td><td data-label="Pair">Semua pair terkait</td><td data-label="Logika">Hawkish → naik; Dovish → turun</td></tr>
+<tr><td data-label="Indikator">GDP</td><td data-label="Pair">Mata uang & indeks saham</td><td data-label="Logika">Di atas forecast → menguat</td></tr>
+<tr><td data-label="Indikator">Retail Sales</td><td data-label="Pair">Mata uang terkait</td><td data-label="Logika">Konsumsi kuat → menguat</td></tr>
+<tr><td data-label="Indikator">PMI</td><td data-label="Pair">Mata uang terkait</td><td data-label="Logika">&gt;50 bullish, &lt;50 bearish</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="anatomi" class="page">
+<div class="tldr"><div class="tldrhead"><span class="badge">TL;DR</span><span class="htitle">Anatomi Kalender</span></div>
+<ul><li>7 kolom wajib: Date, Time, Impact, Event, Actual, Forecast, Previous.</li><li>Harga gerak dari gap Actual vs Forecast.</li></ul></div>
+<div class="panel"><table><thead><tr><th>Date</th><th>Time</th><th>Impact</th><th>Event</th><th>Actual</th><th>Forecast</th><th>Previous</th></tr></thead><tbody>
+<tr><td data-label="Date">Tue Sep 16</td><td data-label="Time">21:30 JST</td><td data-label="Impact"><span class="impdot d-high"></span>High</td><td data-label="Event">US FOMC Rate Decision</td><td data-label="Actual">—</td><td data-label="Forecast">3.50-3.75%</td><td data-label="Previous">3.50-3.75%</td></tr>
+</tbody></table></div>
+<details class="detail"><summary>Baca detail lengkap — kenapa gap lebih penting</summary><div class="body"><p>CPI naik 3.2% kelihatan tinggi tapi kalau forecast 3.5%, itu justru bearish USD karena inflasi lebih rendah dari ekspektasi.</p></div></details>
+</section>
+
+</main>
+</div>
+<footer>FxN Dashboard — Fullstack (Express API + Frontend) · Data per 12-13 September 2026.</footer>
+<script src="app.js"></script>
+</body>
+</html>
