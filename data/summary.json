@@ -1,0 +1,13 @@
+{
+  "insights": [
+    {"icon": "🥇", "text": "Gold $4,349/oz — turun dari puncak 30 hari $4,698 (24-25 Agu), rebound +0.75% pasca CPI in-line."},
+    {"icon": "🏦", "text": "Fed hike odds 85-91% untuk meeting 16 Sep — sinyal hawkish, biasa tekan gold & angkat USD."},
+    {"icon": "📅", "text": "15 event high-impact terjadwal sampai Desember 2026."},
+    {"icon": "🕐", "text": "Overlap London-NY (21:00-01:00 JST) = jam paling berbahaya/menguntungkan buat trading news."}
+  ],
+  "goldPrice": 4349.23,
+  "goldChangePct": 0.75,
+  "fedHikeOdds": 88,
+  "peak30d": 4697.80,
+  "peakDate": "24 Agu 2026"
+}

@@ -1,0 +1,6 @@
+[
+  {"news": "US CPI", "mechanism": "Inflasi tinggi → yield riil naik → opportunity cost gold naik", "direction": "Gold tertekan jangka pendek", "type": "down"},
+  {"news": "US NFP", "mechanism": "NFP kuat → USD & yield naik", "direction": "Gold turun", "type": "down"},
+  {"news": "FOMC", "mechanism": "Hawkish → yield naik tajam", "direction": "Gerak $30-80/oz dalam sesi yang sama", "type": "neutral"},
+  {"news": "Risk-off geopolitik", "mechanism": "Permintaan safe-haven naik", "direction": "Gold naik, bisa decouple dari USD", "type": "up"}
+]
