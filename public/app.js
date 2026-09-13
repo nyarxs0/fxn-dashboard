@@ -4,13 +4,13 @@ function closeNav(){navbar.classList.remove('open');overlay.classList.remove('sh
 hamburger.addEventListener('click',()=>{navbar.classList.contains('open')?closeNav():openNav();});
 overlay.addEventListener('click',closeNav);
 function activate(t){
-  document.querySelectorAll('.navbtn,.sidebtn').forEach(b=>b.classList.toggle('active',b.dataset.target===t));
+  document.querySelectorAll('.sidebtn').forEach(b=>b.classList.toggle('active',b.dataset.target===t));
   document.querySelectorAll('main section.page').forEach(s=>s.classList.remove('active'));
   document.getElementById(t).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   closeNav();
 }
-document.querySelectorAll('.navbtn,.sidebtn').forEach(b=>b.addEventListener('click',()=>activate(b.dataset.target)));
+document.querySelectorAll('.sidebtn').forEach(b=>b.addEventListener('click',()=>activate(b.dataset.target)));
 
 async function api(path){
   const res = await fetch('/api/'+path);
